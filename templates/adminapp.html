@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block body %}
+    
+    <div class="add" style="margin: 100px;margin-left: 500px;font-size: 20px;">
+        <form action="reg" method="get">
+    <h2>Add a new Meeting Room</h2>
+    <p>Place name:</p>
+    <input type="text" name="name" required placeholder="Place Name" >
+    
+    <p>Enter the Image of the meeting room</p>
+    <input type="file" accept="Image/*" id="img" name="image" required>
+    <p>Enter the Seat availability</p>
+    <input type="number" name="seat" placeholder="Seat" id="seat" required>
+    <p>Enter the entire location</p>
+    <input type="text"  placeholder="Location">
+    <select name="city" id="city" required>
+        <option value="City" selected disabled>--Select City--</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Mysore">Mysore</option>
+        <option value="Mangalore">Mangalore</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Pune">Pune</option>
+    </select> 
+    <input type="submit" >
+
+    </form>
+
+    </div>
+   
+{% endblock %}
+

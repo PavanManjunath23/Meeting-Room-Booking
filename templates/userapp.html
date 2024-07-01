@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <h1 style="margin:30px;margin-left: 500px;">Meeting Rooms Available...</h1>
+    <ul style="margin: 20px;">
+        {% for lst in b %}
+           
+            <li style="border: solid 3px;list-style: none;margin: 20px;padding: 10px;font-size: 20px;">
+                <img src="../static/{{lst[4]}}" style="float: left;width:250px;height: 210px;">
+                <p style="font-size: 30px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;position: relative;left: 7%;font-weight: 10;">{{lst[0]}}</p>
+                <p>Seat availability: {{lst[2]}}</p>
+                <p>Location:{{lst[3]}}</p>
+            
+            <form action="userapp" method="post">
+                <input type="text" value="{{lst[0]}}" name="place" hidden>
+                <span>Date:</span>
+                <input type="date" placeholder="Date" name="date" id="demo"  class="demodate" required>
+                <span>Start Time</span>
+                <input type="time" placeholder="Time" name="start-time" id="start" required>
+                <span>End Time</span>
+                <input type="time" placeholder="Time" name="end-time" id="end" required >
+                <input type="submit" >
+            </form>
+        </li>
+            
+        {% endfor %}
+    </ul>
+    <script>
+    var currentDate = new Date();
+    var year = currentDate.getUTCFullYear();
+    var month = currentDate.getMonth()+1;
+    var date = currentDate.getDate();
+    if(date<10){
+        date = '0' + date
+    }
+    if(month<10){
+        month = '0' + month
+    }
+    var minDate=year+"-"+month+"-"+date
+    console.log(minDate);
+    document.getElementById("date").setAttribute('min',minDate)
+   
+  
+    </script>
+{% endblock %}

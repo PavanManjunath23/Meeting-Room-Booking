@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block body %}
+<div style="margin: 200px;margin-left: 500px;font-size: 30px;">
+    <h1>Register succesful</h1>
+    <button onclick="exit()" style="margin: 10px;margin-left: 170px; padding: 13px;border-radius: 12px;border: none;background-color:red;color: white;">Sign out</button>
+</div>
+    <script>
+        function exit(){
+            setTimeout(function(){
+            window.location.href="{{ url_for('index') }}"
+            
+        },1)
+        }
+    </script>
+{% endblock %}

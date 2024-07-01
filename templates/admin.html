@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    
+    <div class="container" id="container" style="margin: 170px;margin-left: 400px;">
+       
+            
+            <h1 style="font-size: 50px;">Login as an administrator</h1>
+            <p>
+                Enter administration Username
+            </p>
+            <input type="text" placeholder="UserName" id="username" required>
+            <p>
+                Enter administration password
+            </p>
+            <input type="password" placeholder="Password" id="password" required>
+            <button style="display:flow-root; margin: 30px;" onclick="Signin()">Sign Up</button>
+            <p class="res" style="color: red;"></p>
+            </form>
+        
+    </div>
+    <script>
+        function Signin(){
+            
+            email= document.getElementById('username')
+            console.log(email.value);
+            password = document.getElementById('password')
+            
+            res=document.querySelector('.res')
+            if(email.value=='admin' & password.value=='admin'){
+                
+                setTimeout(function(){
+                window.location.href="{{ url_for('adminapp') }}"
+                
+            },1)
+            
+            }
+            else{
+               res.innerText='Email or Password is Wrong'
+            }
+        }
+    </script>
+{% endblock %}

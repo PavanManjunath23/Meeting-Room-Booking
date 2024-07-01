@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block body %}
+<div style="margin: 200px;margin-left: 500px;font-size: 30px;">
+    <p > {{ error }}</p>
+    <button onclick="signout()" >Signout</button>
+    <button onclick="goback()">GO BACK</button>
+</div>
+<script>
+    function signout(){
+            setTimeout(function(){
+            window.location.href="{{ url_for('index') }}"
+            
+        },1)
+        }
+        function goback(){
+            setTimeout(function(){
+            window.location.href="{{ url_for('userapp') }}"
+            
+        },1)
+        }
+</script>
+{% endblock %}
